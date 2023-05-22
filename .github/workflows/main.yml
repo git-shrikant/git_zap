@@ -6,10 +6,12 @@ on:
       branches:   [ "main" ]
 jobs:
   build:
-     runs-on:  unbantu-latest
+     runs-on: self-hosted
      steps:
       - uses: actions/checkout@v3
       - name: OWASP ZAP baseline
         uses: zapproxy/action-baseline@v0.7.0
         with:
             target: "https://dotnetthoughts.net"
+            docker_name: 'owasp/zap2docker-stable'
+            cmd_options: '-a'
