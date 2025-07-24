@@ -15,3 +15,24 @@ jobs:
         uses: zaproxy/action-baseline@v0.7.0
         with:
             target: "http://localhost:8080"
+ghp_JgqtSzmLImn7
+yknuva8n@DBT
+eVyffPbGAAR62hnnhg3FlPVC
+docker run -d \
+  --name asterisk \
+  -v /home/shri/asterisk/config:/etc/asterisk \
+  -v /home/shri/asterisk/sounds:/var/lib/asterisk/sounds \
+  -p 5060:5060/udp \
+  -p 5060:5060/tcp \
+  -p 10000-10010:10000-10010/udp \
+  andrius/asterisk
+  
+  docker run -d \
+  --name t_asterisk \
+  -v /home/shri/DEV/hackathon2025/logs:/var/log/asterisk \
+  -p 5060:5060/udp \
+  -p 5060:5060/tcp \
+  -p 10000-10010:10000-10010/udp \
+  andrius/asterisk
+  
+  docker cp /opt/asterisk-logs/master.db asterisk:/var/log/asterisk/master.db
